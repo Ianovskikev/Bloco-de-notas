@@ -94,9 +94,6 @@ header {
 }
 
 #note-creator {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   bottom: 40px;
   height: 3rem;
   width: 88%;
@@ -108,4 +105,21 @@ header {
   background: var(--Color1);
   display: flex;
   flex-direction: column-reverse;
+}
+
+@media screen and (max-width: 1200px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .notes-info {
+    width: 100%;
+    padding: 5px;
+    min-height: 100%;
+  }
+}
+
+/* || footer */
+footer {
+  height: 10rem;
 }
