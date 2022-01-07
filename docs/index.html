@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="note.css" />
     <title>Document</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
   </head>
   <body>
+    <div class="background"></div>
     <header>
       <img
         src="./img/logonewNotes.svg"
@@ -38,21 +40,38 @@
         </ul>
 
         <div class="centro-flex">
-          <button id="note-creator"> &#43; nota</button>
+          <button  class="note-btn" id="note-creator" onclick="createNote()"> &#43; nota</button>
+          <button class="note-btn">apagar</button>
         </div>
       </div>
 
       <div class="note-container">
         
         <div class="note-wrapper">
-          the note 1
+          <div id="editor">This is some sample content.</div>
         </div>
-        
-      </div>
     </section>
 
   <footer>
     <a href=""></a>
   </footer>
+  <script>
+
+ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+
+    function createNote() {
+      let newNote = document.createElement('div')
+      newNote.className = 'note-wrapper'
+      document.querySelector('.note-container').appendChild(newNote)
+    }
+  </script>
+  <script src="./main.js"></script>
   </body>
 </html>
