@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="note.css" />
     <title>Document</title>
+    <script src="https://unpkg.com/phosphor-icons"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
   </head>
   <body>
@@ -26,30 +27,86 @@
         <p><h1>CRIAR SALVAR e ARMAZENAR</h1>
           notas de um jeito simples e prático
          </p>
+      </div>
+
+         <a href="#main" id="cta-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="plus-sign">
+            <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
+          </svg>
+          Criar nota
+         </a>
     </section>
 
     <section class="main" id="main">
-      <div class="notes-info">
-        <p>Minhas notas : <b id="notes-counter">1</b></p>
 
-        <ul>
-          <li><b>1-</b>titulo da nota1</li>
-          <li><b>1-</b>titulo da nota2</li>
-          <li><b>1-</b>titulo da nota3</li>
-          <li><b>1-</b>titulo da nota4</li>
+      <div class="notes-info">
+        <p class="notes-counter">Minhas notas
+          <b id="notes-counter">1</b></p>
+
+        <ul class="notes-list">
+          <li>
+            <p><b>1-</b>titulo da nota1</p>
+           <div class="del-btn-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="ni-del-btn-1">
+              <path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
+    
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="ni-del-btn-2">
+              <path d="M3 8v16h18v-16h-18zm5 12c0 .552-.448 1-1 1s-1-.448-1-1v-8c0-.552.448-1 1-1s1 .448 1 1v8zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-8c0-.552.448-1 1-1s1 .448 1 1v8zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-8c0-.552.448-1 1-1s1 .448 1 1v8zm4-15.375l-.409 1.958-19.591-4.099.409-1.958 5.528 1.099c.881.185 1.82-.742 2.004-1.625l5.204 1.086c-.184.882.307 2.107 1.189 2.291l5.666 1.248z"/>
+            </svg>
+           </div>
+          </li>
+
+          <li>
+            <p><b>1-</b>titulo da nota1</p>
+           <div class="del-btn-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="ni-del-btn-1">
+              <path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
+    
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="ni-del-btn-2">
+              <path d="M3 8v16h18v-16h-18zm5 12c0 .552-.448 1-1 1s-1-.448-1-1v-8c0-.552.448-1 1-1s1 .448 1 1v8zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-8c0-.552.448-1 1-1s1 .448 1 1v8zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-8c0-.552.448-1 1-1s1 .448 1 1v8zm4-15.375l-.409 1.958-19.591-4.099.409-1.958 5.528 1.099c.881.185 1.82-.742 2.004-1.625l5.204 1.086c-.184.882.307 2.107 1.189 2.291l5.666 1.248z"/>
+            </svg>
+           </div>
+          </li>
+
+          <li>
+            <p><b>1-</b>titulo da nota1</p>
+           <div class="del-btn-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="ni-del-btn-1">
+              <path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/>
+    
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="ni-del-btn-2">
+              <path d="M3 8v16h18v-16h-18zm5 12c0 .552-.448 1-1 1s-1-.448-1-1v-8c0-.552.448-1 1-1s1 .448 1 1v8zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-8c0-.552.448-1 1-1s1 .448 1 1v8zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-8c0-.552.448-1 1-1s1 .448 1 1v8zm4-15.375l-.409 1.958-19.591-4.099.409-1.958 5.528 1.099c.881.185 1.82-.742 2.004-1.625l5.204 1.086c-.184.882.307 2.107 1.189 2.291l5.666 1.248z"/>
+            </svg>
+           </div>
+          </li> 
         </ul>
 
         <div class="centro-flex">
-          <button  class="note-btn" id="note-creator" onclick="createNote()"> &#43; nota</button>
-          <button class="note-btn">apagar</button>
+          <button  class="note-btn centro-flex" id="note-creator" onclick="createNote()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff">
+              <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
+            </svg>
+            nota
+          </button>
         </div>
       </div>
 
       <div class="note-container">
         
         <div class="note-wrapper">
+          <form action="#">
+            <input type="text" name="note-tile" id="#" class="note-title" placeholder="Nome da Nota">
+          </form>
           <div id="editor">This is some sample content.</div>
         </div>
+        
+      </div>
     </section>
 
   <footer>
