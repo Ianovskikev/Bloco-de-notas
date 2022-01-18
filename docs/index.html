@@ -11,8 +11,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
   </head>
   <body>
-    <div class="background"></div>
-    <header>
+    <nav>
       <img
         src="./img/logonewNotes.svg"
         alt="newnotes"
@@ -20,71 +19,89 @@
         height="40px"
         width="auto"
       />
-    </header>
+    </nav>
 
-    <section class="home centro-flex" id="home">
-      <div class="home-text">
-        <p><h1>CRIAR SALVAR e ARMAZENAR</h1>
-          notas de um jeito simples e prático
-         </p>
-      </div>
+    <main id="main">
+      <div class="sideBar">
+        <div class="sideBar__counter container" id="counter">
+          <p>Minhas notas: <span>1</span></p>
+        </div>
+        <button class="newnote-btn reset centro-flex" id="note-creator">
+          <i class="ph-plus"></i>
+          nota
+        </button>
 
-         <a href="#main" id="cta-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="plus-sign">
-            <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
-          </svg>
-          Criar nota
-         </a>
-    </section>
-
-    <section class="main" id="main">
-      <div class="notes-info">
-        <div id="counter"></div>
-
-          <div id="notes-list"></div>
-
-        <div class="centro-flex">
-          <button  class="note-btn centro-flex" id="note-creator" >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff">
-              <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z"/>
-            </svg>
-            nota
+        <div class="sideBar__item sideBar__item--active container">
+          <div class="item__name">Nota 1</div>
+          <button id="item__exit" class="reset"><i class="ph-x"></i></button>
+          <button id="item__settings" class="reset">
+            <i class="ph-gear"></i>
+          </button>
+        </div>
+        <div class="sideBar__item container">
+          <div class="item__name">Nota 2</div>
+          <button id="item__exit" class="reset"><i class="ph-x"></i></button>
+          <button id="item__settings" class="reset">
+            <i class="ph-gear"></i>
           </button>
         </div>
       </div>
 
-      <div class="note-container">
-        <div class="note-wrapper">
-          <button class="save">Salvar</button>
-          <form action="#">
-            <input type="text" placeholder="Nome da Nota" id="note-tile">
-            <textarea id="editor"></textarea>
-          </form>
+      <div class="note">
+        <div class="note__info container">
+          <input
+            type="text"
+            placeholder="Nome da Nota..."
+            id="note-tile"
+            class="note__name reset"
+          />
+
+          <button class="note__save reset">Salvar</button
+          ><!--classe antiga "save"-->
+        </div>
+
+        <div class="note__editor">
+          <div id="editor"></div>
         </div>
       </div>
-    </section>
+    </main>
 
-  <footer>
-    <img
-    src="./img/logonewNotes.svg"
-    alt="newnotes"
-    height="40px"
-    width="auto"
-    style="position: relative; bottom: 5px;"
-  />
-  
-  <div class="centro-flex footer-links" style=" gap: 10px;">
-    <a href="#">Inicio</a>
-    <a href="#">Criar Notas</a>
-    <a href="#">Sobre Nós</a>
-  </div>
-  <p style="opacity: .8;">NEWnotes, Inc. 2022. desenvoimento AB42</p>
-  </footer>
-  <script src="./app/domain/nota/Nota.js"></script>
-  <script src="./app/domain/notas/Notas.js"></script>
-  <script src="./app/view/NotasView.js"></script>
-  <script src="./app/view/NotaView.js"></script>
-  <script src="./app/controller/NotaController.js"></script>
-  <script src="./app/app.js"></script>
+    <footer>
+      <img
+        src="./img/logonewNotes.svg"
+        alt="newnotes"
+        height="40px"
+        width="auto"
+        style="position: relative; bottom: 5px"
+      />
+
+      <div class="centro-flex footer-links" style="gap: 10px">
+        <a href="#">Inicio</a>
+        <a href="#">Criar Notas</a>
+        <a href="#">Sobre Nós</a>
+      </div>
+      <p style="opacity: 0.8">NEWnotes, Inc. 2022. desenvoimento AB42</p>
+    </footer>
+    <script>
+      ClassicEditor.create(document.querySelector("#editor"))
+        .then((editor) => {
+          console.log(editor);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+      function createNote() {
+        let newNote = document.createElement("div");
+        newNote.className = "note-wrapper";
+        document.querySelector(".note-container").appendChild(newNote);
+      }
+    </script>
+    <script src="./app/domain/nota/Nota.js"></script>
+    <script src="./app/domain/notas/Notas.js"></script>
+    <script src="./app/view/NotasView.js"></script>
+    <script src="./app/view/NotaView.js"></script>
+    <script src="./app/controller/NotaController.js"></script>
+    <script src="./app/app.js"></script>
   </body>
 </html>
