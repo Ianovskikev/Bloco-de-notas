@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="note.css" />
     <title>Document</title>
     <script src="https://unpkg.com/phosphor-icons"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
+    <script src="/ckeditor/ckeditor.js"></script>
   </head>
   <body>
     <nav>
@@ -20,6 +20,15 @@
         width="auto"
       />
     </nav>
+
+    <article class="centro-flex">
+     <div class="article__header">
+      <h1>CRIAR SALVAR e ARMAZENAR</h1>
+      <p>Notas de forma simples e prática</p>
+     </div>
+
+     <img src="./img/newNote-img.svg" height="200px" width="auto" alt="note">
+    </article>
 
     <main id="main">
       <div class="sideBar">
@@ -54,6 +63,7 @@
             placeholder="Nome da Nota..."
             id="note-tile"
             class="note__name reset"
+            autocomplete="off"
           />
 
           <button class="note__save reset">Salvar</button
@@ -83,19 +93,20 @@
       <p style="opacity: 0.8">NEWnotes, Inc. 2022. desenvoimento AB42</p>
     </footer>
     <script>
-      ClassicEditor.create(document.querySelector("#editor"))
-        .then((editor) => {
-          console.log(editor);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      CKEDITOR.replace( 'editor' );
+      // ClassicEditor.create(document.querySelector("#editor"))
+      //   .then((editor) => {
+      //     console.log(editor);
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
 
-      function createNote() {
-        let newNote = document.createElement("div");
-        newNote.className = "note-wrapper";
-        document.querySelector(".note-container").appendChild(newNote);
-      }
+      // function createNote() {
+      //   let newNote = document.createElement("div");
+      //   newNote.className = "note-wrapper";
+      //   document.querySelector(".note-container").appendChild(newNote);
+      // }
     </script>
     <script src="./app/domain/nota/Nota.js"></script>
     <script src="./app/domain/notas/Notas.js"></script>

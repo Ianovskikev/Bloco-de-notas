@@ -46,7 +46,7 @@ body {
   color: var(--Color1);
   font-weight: bold;
   font-size: 20px;
-  padding: 5px;
+  padding: 12px;
   width: 100%;
 }
 /* || nav */
@@ -56,6 +56,11 @@ nav {
   padding: 10px;
   place-items: center;
   position: relative;
+}
+/* || article */
+article{
+  padding: 5rem;
+  gap: 10rem
 }
 /* || main */
 main {
@@ -166,9 +171,9 @@ main {
   height: 100%;
 }
 
-.ck {
-  height: 30rem;
-}
+
+
+
 
 @media screen and (max-width: 1160px) {
   main {
