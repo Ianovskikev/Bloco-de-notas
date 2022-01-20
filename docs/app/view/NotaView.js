@@ -1,13 +1,13 @@
 class NotaView {
-    constructor(selecTitulo, selecTexto) {
+    constructor(selecTitulo, editor = CKEDITOR.instances.editor) {
 
         this._titulo = document.querySelector(selecTitulo);
-        this._texto = document.querySelector(selecTexto);
+        this._texto = editor;
     }
 
     update(model) {
         this._titulo.value = model.titulo;
-        this._texto.value = model.texto;
+        this._texto.setData(model.texto);
     }
 }
 

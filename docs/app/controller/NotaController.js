@@ -5,6 +5,7 @@ const defaultConfig = {
     selector: false,
     notas: false,
     notasView: false,
+    ditor: false,
 }
 
 class NotaController {
@@ -13,13 +14,13 @@ class NotaController {
         let $ = config.selector.selecionar || document.querySelector.bind(document);
 
         this._titulo = $('#note-tile');
-        this._texto = $('#editor');
+        this._texto = config.editor || CKEDITOR.instances.editor;
         this._notas = config.notas || new Notas();
-        this._notaView = config.notaView || new NotaView('#note-tile', '#editor');
+        this._notaView = config.notaView || new NotaView('#note-tile');
         this._notaAtual = new Nota('_'+this._notas.nextId(), '', '')
         this._notaView.update(this._notaAtual);
 
-        this._notasView = config.notasView || new NotasView('#notes-list', '#counter')
+        this._notasView = config.notasView || new NotasView('#notas', '#counter')
 
         this._notasView.update(this._notas.paraArray());
     }
@@ -49,7 +50,7 @@ class NotaController {
 
     updateNota() {
         const id = this._notaAtual.id;
-        let nota = new Nota(id, this._titulo.value, this._texto.value);
+        let nota = new Nota(id, this._titulo.value, this._texto.getData());
         this._notas.delete(id);
         this._notas.add(nota);
         this._notasView.update(this._notas.paraArray());

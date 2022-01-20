@@ -40,20 +40,14 @@
           nota
         </button>
 
-        <div class="sideBar__item sideBar__item--active container">
+        <!-- <div class="sideBar__item sideBar__item--active container">
           <div class="item__name">Nota 1</div>
           <button id="item__exit" class="reset"><i class="ph-x"></i></button>
           <button id="item__settings" class="reset">
             <i class="ph-gear"></i>
           </button>
-        </div>
-        <div class="sideBar__item container">
-          <div class="item__name">Nota 2</div>
-          <button id="item__exit" class="reset"><i class="ph-x"></i></button>
-          <button id="item__settings" class="reset">
-            <i class="ph-gear"></i>
-          </button>
-        </div>
+        </div> -->
+        <div id="notas"></div>
       </div>
 
       <div class="note">
@@ -66,7 +60,7 @@
             autocomplete="off"
           />
 
-          <button class="note__save reset">Salvar</button
+          <button class="note__save reset" id="salvar">Salvar</button
           ><!--classe antiga "save"-->
         </div>
 
@@ -94,19 +88,6 @@
     </footer>
     <script>
       CKEDITOR.replace( 'editor' );
-      // ClassicEditor.create(document.querySelector("#editor"))
-      //   .then((editor) => {
-      //     console.log(editor);
-      //   })
-      //   .catch((error) => {
-      //     console.error(error);
-      //   });
-
-      // function createNote() {
-      //   let newNote = document.createElement("div");
-      //   newNote.className = "note-wrapper";
-      //   document.querySelector(".note-container").appendChild(newNote);
-      // }
     </script>
     <script src="./app/domain/nota/Nota.js"></script>
     <script src="./app/domain/notas/Notas.js"></script>
