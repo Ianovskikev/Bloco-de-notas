@@ -25,9 +25,6 @@ class NotasView {
           ${nota.titulo? nota.titulo: nota.texto.slice(0, 10)}
           </div>
           <button id="item__exit" class="reset" onclick="controller.deletarNota.bind(controller)('${nota.id}')"><i class="ph-x"></i></button>
-          <button id="item__settings" class="reset">
-            <i class="ph-gear"></i>
-          </button>
         </div>`).join('')
       }
       `
