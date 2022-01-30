@@ -10,6 +10,7 @@
   --Color1: #9b9fa6;
   --Color2: #202125;
   --Color3: #548cff;
+  --FullColor: #fff;
 
   --font1: "Montserrat", sans-serif;
 
@@ -58,9 +59,9 @@ nav {
   position: relative;
 }
 /* || article */
-article{
+article {
   padding: 5rem;
-  gap: 10rem
+  gap: 10rem;
 }
 /* || main */
 main {
@@ -83,20 +84,43 @@ main {
 }
 
 .sideBar__counter {
+  width: 100%;
   position: absolute;
   top: 0px;
 }
 
+#notas {
+  width: 100%;
+  max-height: 40rem;
+  overflow-y: scroll;
+  /* background-color: #548cff; */
+}
+
+#notas::-webkit-scrollbar {
+  display: none;
+}
 .sideBar__item {
+  width: 100%;
   margin-bottom: 1.5rem;
   padding: 10px;
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  place-items: center;
+  height: 6rem;
   gap: 12px;
-  align-items: flex-start;
 }
 
+.item__name {
+  width: 60%;
+  height: 60%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.item__name:hover {
+  color: var(--FullColor);
+}
 .sideBar__item--active {
   border: 1px solid var(--Color3);
 }
@@ -171,18 +195,30 @@ main {
   height: 100%;
 }
 
-
-
-
-
 @media screen and (max-width: 1160px) {
   main {
     flex-direction: column;
   }
 
-  .sideBar__item {
+  .sideBar {
     width: 100%;
-    height: 20rem;
+    height: 100%;
+  }
+
+  .sideBar__item {
+    min-width: 16rem;
+    height: 100%;
+  }
+
+  #notas {
+    width: 100%;
+    height: 6rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    gap: 1rem;
   }
 }
 /* || footer */
