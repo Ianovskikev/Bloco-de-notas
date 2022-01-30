@@ -2,11 +2,6 @@ if (!window.indexedDB) {
     window.alert("Seu navegador não suporta uma versão estável do IndexedDB. Alguns recursos não estarão disponíveis.");
 }
 
-const dadosFic = [
-    {titulo: 'a', texto: '1', date: new Date().setMonth(7)},
-    {titulo: 'b', texto: '2', date: new Date().setMonth(8)},
-]
-
 class Nota {
     constructor(_id, _titulo, _texto) {
         Object.assign(this, {_id, _titulo, _texto})
@@ -45,10 +40,13 @@ request.onsuccess = function(event) {
     texto = CKEDITOR.instances.editor;
 
     document.querySelector('#salvar').addEventListener('click', () => {
+        let dados = {titulo: titulo.value, texto: texto.getData()};
+        if (dados.titulo == '' && dados.texto == '') dados.titulo = 'Nota sem Título';
+    
         if (notaAtual.id == 0)
-            dbAdd({titulo: titulo.value, texto: texto.getData()});
+            dbAdd(dados);
         else
-            dbUpdate(notaAtual.id, {titulo: titulo.value, texto: texto.getData()})
+            dbUpdate(notaAtual.id, dados)
         
         updateListaDeNotas()
     })
@@ -68,14 +66,6 @@ request.onupgradeneeded = function(event) {
 
     let objectStore = db.createObjectStore(objName, { keyPath: "id", autoIncrement: true });
     objectStore.createIndex('date', 'date', {unique: true})
-
-    // apenas para testes
-    objectStore.transaction.oncomplete = function(event) {
-        let clientesObjectStore = db.transaction(objName, "readwrite").objectStore(objName);
-        for (let i in dadosFic) {
-          clientesObjectStore.add(dadosFic[i]);
-        }
-    }
 };
 
 function dbAdd(nota) {
@@ -93,7 +83,7 @@ function dbAdd(nota) {
     }
     const request = objectStore.add(dadosDaNota);
     request.onsuccess = function(event) {
-        console.log('salvo com sucesso');
+        notaAtual = new Nota(event.target.result, nota.titulo, nota.texto)
     }
 }
 
@@ -188,9 +178,6 @@ class NotasView {
           ${nota.titulo? nota.titulo: nota.texto.slice(0, 10)}
           </div>
           <button id="item__exit" class="reset" onclick="deleteNota(${nota.id})"><i class="ph-x"></i></button>
-          <button id="item__settings" class="reset">
-            <i class="ph-gear"></i>
-          </button>
         </div>`).join('')
       }
       `
@@ -204,7 +191,6 @@ function updateListaDeNotas() {
 
     objectStore.getAll().onsuccess = function(event) {
         let result =  event.target.result;
-
-        notasView.update(result)
+        notasView.update(result);
     }
 }
