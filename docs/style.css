@@ -17,6 +17,11 @@
   --breakpoint: 1160px;
 }
 
+.darkmode {
+  --Color1: #222222;
+  --Color2: #dadada;
+  --FullColor: rgb(0, 0, 0);
+}
 /* || general info */
 html {
   scroll-behavior: smooth;
@@ -26,6 +31,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: var(--Color2);
+  font-family: var(--font1);
 }
 
 .centro-flex {
@@ -54,9 +60,18 @@ body {
 nav {
   border-bottom: 1px solid var(--Color1);
   display: grid;
-  padding: 10px;
+  padding: 0.6rem;
   place-items: center;
   position: relative;
+}
+
+.site-logo {
+  width: 8rem;
+  height: auto;
+}
+
+.logo__fill {
+  fill: var(--FullColor);
 }
 /* || article */
 article {
@@ -87,17 +102,39 @@ main {
   width: 100%;
   position: absolute;
   top: 0px;
+  text-transform: uppercase;
+}
+
+.sideBar__counter b {
+  color: var(--FullColor);
 }
 
 #notas {
   width: 100%;
   max-height: 40rem;
   overflow-y: scroll;
+  padding-right: 0.3rem;
   /* background-color: #548cff; */
 }
 
+/* Scrollbar notas */
+#notas {
+  scrollbar-width: thin;
+  scrollbar-color: var(--Color3) var(--Color2);
+}
+
 #notas::-webkit-scrollbar {
-  display: none;
+  width: 6px;
+}
+
+#notas::-webkit-scrollbar-track {
+  background: var(--Color2);
+}
+
+#notas::-webkit-scrollbar-thumb {
+  background-color: var(--Color3);
+  border-radius: 10px;
+  /* border: 3px solid var(--Color2); */
 }
 .sideBar__item {
   width: 100%;
@@ -198,6 +235,7 @@ main {
 @media screen and (max-width: 1160px) {
   main {
     flex-direction: column;
+    padding: 1rem;
   }
 
   .sideBar {
@@ -219,6 +257,7 @@ main {
     flex-direction: row;
     margin-bottom: 1rem;
     gap: 1rem;
+    padding-bottom: 0.6rem;
   }
 }
 /* || footer */

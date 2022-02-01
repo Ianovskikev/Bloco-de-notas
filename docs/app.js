@@ -165,7 +165,7 @@ class NotasView {
 
     _contadorTemplate(model) {
         return `
-        <p class="notes-counter">Minhas notas
+        <p class="notes-counter">Minhas notas:
           <b id="notes-counter">${model.length}</b></p>
         `;
     }
