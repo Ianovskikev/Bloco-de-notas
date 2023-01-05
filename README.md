@@ -1,7 +1,9 @@
 # Bloco-de-notas
 
-Uma página que possibilita criar, editar e deletar notas e armazena as notas no banco de dados do servidor(IndexedDB).
+Bloco de notas online que possibilita criar, editar e deletar notas e armazena as notas no banco de dados do navegador (IndexedDB).
 
-O principal objetivo desse projeto é obter conhecimento e ser um portifólio.
+O principal objetivo desse projeto é obter conhecimento e servir de portifólio.
 
-Link do site: https://newnotes-42ab42.web.app/ 
+Link do site: https://newnotes-42ab42.web.app/
+
+Feito com carinho por: Kevin Ianovski Martins e André Luis Godinho
